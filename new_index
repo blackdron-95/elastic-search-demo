@@ -1,0 +1,90 @@
+PUT my_index
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "gramFilter": {
+          "type": "nGram",
+          "min_gram": 1,
+          "max_gram": 20,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
+        }
+      },
+      "analyzer": {
+        "gramAnalyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "gramFilter"
+          ]
+        },
+        "whitespaceAnalyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "my_type": {
+      "properties": {
+        "course_title": {
+          "type": "string",
+          "analyzer": "gramAnalyzer",
+          "search_analyzer": "whitespaceAnalyzer"
+        },
+		"url":{
+			"type":"string"
+		},
+		"description":{
+			"type":"string"
+		}
+		
+      }
+    }
+  }
+}
+
+
+--------------------------------------------
+
+POST my_index/my_type/_search 
+{
+  "query": {
+    "match": {"course_title":"arman"
+    }
+  }
+}
+
+--------------------------------------------
+GET my_index/my_type/_search
+{
+
+  "query": {
+
+    "multi_match" : {
+
+      "query": "c++", 
+
+      "fields": [ "course_title", "url", "description" ] 
+
+    }
+
+  }
+
+}
+
+---------------------------------------------
+"fuzzy": {
+      "text": {
+        "value": "jomp",                                                
+        "fuzziness": 1                                         
+      }
+    }

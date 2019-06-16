@@ -1,0 +1,43 @@
+PUT my_index/my_type/1
+{
+    "course_title" : "Java",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a Java technology."
+}
+PUT my_index/my_type/2
+{
+    "course_title" : "Javascript",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. Wow this is awesome"
+}
+PUT my_index/my_type/3
+{
+    "course_title" : "Python",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. I love this language."
+}
+PUT my_index/my_type/4
+{
+    "course_title" : "Big Data",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. Big data is really big."
+}
+PUT my_index/my_type/5
+{
+    "course_title" : "BSON",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. BSON is another JSON."
+}
+PUT my_index/my_type/6
+{
+    "course_title" : "JSON",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. Hey its very cool."
+}
+
+PUT my_index/my_type/7
+{
+    "course_title" : "C++",
+    "url" : "http://www.google.com/",
+	"description":"This text is description of a technology. Hey its very cool."
+}
